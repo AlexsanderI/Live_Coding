@@ -1,3 +1,5 @@
+console.log('helo');
+
 // How to work on tech tasks. Step by step guide
 
 // 1. Learn requirement (what) +++
@@ -23,9 +25,10 @@
 
 function getPrimes(num) {
   // put your code here
-  let isPrime = tru;
-  console.log('index is' + index);
+  let isPrime = true;
+
   for (let index = 2; index <= num; index += 1) {
+    console.log('index is' + index);
     for (let secondIndex = 2; secondIndex < index; secondIndex += 1) {
       console.log('secondIndex' + secondIndex);
       if (index % secondIndex === 0) {
@@ -39,3 +42,5 @@ function getPrimes(num) {
     }
   }
 }
+
+getPrimes(10);

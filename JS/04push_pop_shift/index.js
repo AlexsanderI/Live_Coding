@@ -6,6 +6,8 @@ const numbersList1 = [1, 2, 3, 4, 5];
 // const numbersList1 = new Array(1, 2, 3, 4);
 // numbersList1.fill();
 
+//  input: none
+//  return: number
 const res = numbersList1.pop();
 
 console.log(res);

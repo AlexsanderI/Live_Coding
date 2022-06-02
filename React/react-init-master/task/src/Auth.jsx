@@ -21,41 +21,40 @@ import Spinner from './Spinner';
 // 4.after logout click -show login
 class Auth extends React.Component {
   state = {
-    idLoggerIn: false,
+    isLoginIn: false,
     isProcessing: false,
   };
 
   loginHandler = () => {
     //
     this.setState({
-      idLoggerIn: false,
+      isProcessing: true,
     });
     setTimeout(() => {
       //
       this.setState({
         isProcessing: false,
-        idLoggerIn: true,
+        isLoginIn: true,
       });
     }, 2000);
-    console.log('Finesh');
   };
 
   logoutHendler = () => {
     // input obj
     // output setate
     this.setState({
-      idLoggerIn: false,
+      isLoginIn: false,
     });
   };
 
   render() {
     console.log('RERENDER');
-    const { isProcessing, idLoggerIn } = this.state;
+    const { isProcessing, isLoginIn } = this.state;
     console.log('Render is called');
     if (isProcessing) {
       return <Spinner></Spinner>;
     }
-    if (idLoggerIn) {
+    if (isLoginIn) {
       // мщжно через тернарный оператор - читаемость слабая
       return <Logout onLogout={this.logoutHendler}></Logout>;
     }

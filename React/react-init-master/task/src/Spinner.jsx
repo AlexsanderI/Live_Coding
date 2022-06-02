@@ -4,6 +4,6 @@ import React from 'react';
 //output: jsx
 
 const Spinner = props => {
-  return <span class="spinner"></span>;
+  return <span className="spinner"></span>;
 };
 export default Spinner;

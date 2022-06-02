@@ -4,6 +4,11 @@ import React from 'react';
 //output: jsx
 
 const Login = props => {
-  return <button class="login btn">Login</button>;
+  console.log(props);
+  return (
+    <button className="login btn" onClick={props.onLogin}>
+      Login
+    </button>
+  );
 };
 export default Login;

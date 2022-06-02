@@ -14,15 +14,52 @@ import Spinner from './Spinner';
 // isloggedIn bool
 // isProcess bool
 
+// logo
+// 1.show Login by default
+// 2.after login click - show Spinner for 2 seconds
+// 3.hide Spinner, show logout
+// 4.after logout click -show login
 class Auth extends React.Component {
+  state = {
+    idLoggerIn: false,
+    isProcessing: false,
+  };
+
+  loginHandler = () => {
+    //
+    this.setState({
+      idLoggerIn: false,
+    });
+    setTimeout(() => {
+      //
+      this.setState({
+        isProcessing: false,
+        idLoggerIn: true,
+      });
+    }, 2000);
+    console.log('Finesh');
+  };
+
+  logoutHendler = () => {
+    // input obj
+    // output setate
+    this.setState({
+      idLoggerIn: false,
+    });
+  };
+
   render() {
-    return (
-      <>
-        <Login></Login>
-        <Logout></Logout>
-        <Spinner></Spinner>
-      </>
-    );
+    console.log('RERENDER');
+    const { isProcessing, idLoggerIn } = this.state;
+    console.log('Render is called');
+    if (isProcessing) {
+      return <Spinner></Spinner>;
+    }
+    if (idLoggerIn) {
+      // мщжно через тернарный оператор - читаемость слабая
+      return <Logout onLogout={this.logoutHendler}></Logout>;
+    }
+    return <Login onLogin={this.loginHandler}></Login>;
   }
 }
 

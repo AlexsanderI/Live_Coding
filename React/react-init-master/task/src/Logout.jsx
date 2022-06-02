@@ -4,6 +4,11 @@ import React from 'react';
 //output: jsx
 
 const logout = props => {
-  return <button class="logout btn">Logout</button>;
+  console.log('LofOut Props', props);
+  return (
+    <button className="logout btn" onClick={props.onLogout}>
+      Logout
+    </button>
+  );
 };
 export default logout;

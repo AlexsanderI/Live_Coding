@@ -10,35 +10,35 @@ import Pagination from './Pagination';
 import User from './User';
 
 // state
-// curPage
+// currentPage
 
 class UserList extends React.Component {
   state = {
-    curPage: 1,
+    currentPage: 1,
   };
-  itemsPrePage = 3;
+  itemsPerPage = 3;
   prevBtnHandler = () => {
-    this.setState({ curPage: this.state.curPage - 1 });
+    this.setState({ currentPage: this.state.currentPage - 1 });
   };
 
   nextBtnHandler = () => {
-    this.setState({ curPage: this.state.curPage + 1 });
+    this.setState({ currentPage: this.state.currentPage + 1 });
   };
 
   render() {
     const users = this.props.users;
-    const startIndex = (this.state.curPage - 1) * this.itemsPrePage;
-    const endIndex = startIndex + this.itemsPrePage;
+    const startIndex = (this.state.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
     const usersToRender = users.slice(startIndex, endIndex);
 
     return (
       <div>
         <Pagination
-          curPage={this.state.curPage}
+          currentPage={this.state.currentPage}
           goPrev={this.prevBtnHandler}
           goNext={this.nextBtnHandler}
           totalItems={users.length}
-          itemsPrePage={this.itemsPrePage}
+          itemsPerPage={this.itemsPerPage}
         />
         <ul className="users">
           {usersToRender.map(user => (
